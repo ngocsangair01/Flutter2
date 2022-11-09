@@ -1,0 +1,41 @@
+spring:
+  jackson:
+    time-zone: GMT+7
+  servlet:
+    multipart:
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test_api?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Abc123!@#
+    tomcat:
+      connection-properties: useUnicode=true
+      characterEncoding: utf-8
+  data:
+    cassandra:
+      schema-action: create_if_not_exists
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true
+        enable_lazy_load_no_trans: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
