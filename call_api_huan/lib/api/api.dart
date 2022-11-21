@@ -1,7 +1,7 @@
 
 
 import 'package:dio/dio.dart';
-import 'package:minismart/api/general_service.dart';
+import './general_service.dart';
 import 'package:retrofit/http.dart';
 import '../utils/contants.dart';
 part 'api.g.dart';

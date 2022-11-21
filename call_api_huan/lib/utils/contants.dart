@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 const port = "8080";
-const baseUrl = "http://192.168.16.109:$port/";
+const baseUrl = "http://192.168.31.220:$port/";
 
 const appName = "Hello";
 //assets

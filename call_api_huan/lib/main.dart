@@ -1,7 +1,10 @@
+import 'package:call_api_huan/api/api_service.dart';
+import 'package:call_api_huan/ui/category/category_screen.dart';
+import 'package:call_api_huan/utils/colors.dart';
+import 'package:call_api_huan/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:minismart/utils/colors.dart';
-import 'package:minismart/utils/styles.dart';
-void main(){
+
+void main() {
   runApp(MyApp());
 }
 
@@ -18,14 +21,16 @@ class MyApp extends StatelessWidget {
           primaryColor: primaryMaterialColor,
           primaryColorLight: primaryMaterialColor,
           primaryColorDark: primaryMaterialColor,
-          fontFamily: 'Gotham'
+          fontFamily: 'Gotham'),
+      home: MyHomePage(
+        title: 'Hello',
       ),
-      home: MyHomePage(title: 'Hello',),
     );
   }
 }
+
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key,required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -34,14 +39,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final Init init = Init();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FutureBuilder<Init>(
+      future: init.setInit(context),
+      builder: (context,snapshot) => CategoryScreen(),
+    );
   }
 }
 
-class Init{
-  Future<Init> setInit(BuildContext context) async{
+class Init {
+  Future<Init> setInit(BuildContext context) async {
+    ApiService().getApi();
     SizeConfig().init(context);
     return Init();
   }

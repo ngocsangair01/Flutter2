@@ -8,41 +8,36 @@ part of 'general_service.dart';
 
 GeneralService<T> _$GeneralServiceFromJson<T>(Map<String, dynamic> json) =>
     GeneralService<T>(
-      data: _dataFromJson(json['data'] as Map<String, dynamic>),
+      results: _dataFromJson(json['results'] as Object),
       message: json['message'] as String?,
-      success: json['success'] as bool?,
+      status: json['status'] as int?,
+      pagination: json['pagination'] == null
+          ? null
+          : Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$GeneralServiceToJson<T>(GeneralService<T> instance) =>
     <String, dynamic>{
-      'data': _dataToJson(instance.data),
+      'results': _dataToJson(instance.results),
       'message': instance.message,
-      'success': instance.success,
+      'status': instance.status,
+      'pagination': instance.pagination,
     };
 
 GeneralServices _$GeneralServicesFromJson(Map<String, dynamic> json) =>
     GeneralServices(
-      data: json['data'] == null ? null : GeneralData.fromJson(json['data']),
+      results: _dataListFromJson(json['results'] as Object),
       message: json['message'] as String?,
-      success: json['success'] as bool?,
+      status: json['status'] as int?,
+      pagination: json['pagination'] == null
+          ? null
+          : Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$GeneralServicesToJson(GeneralServices instance) =>
     <String, dynamic>{
-      'data': instance.data,
+      'results': instance.results,
       'message': instance.message,
-      'success': instance.success,
-    };
-
-GeneralData _$GeneralDataFromJson(Map<String, dynamic> json) => GeneralData(
-      pagination: json['pagination'] == null
-          ? null
-          : Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
-      records: _dataListFromJson(json['records'] as Object),
-    );
-
-Map<String, dynamic> _$GeneralDataToJson(GeneralData instance) =>
-    <String, dynamic>{
-      'records': instance.records,
+      'status': instance.status,
       'pagination': instance.pagination,
     };

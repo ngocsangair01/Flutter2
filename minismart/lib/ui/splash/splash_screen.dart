@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
+    // TODO: implement didChangeDependencies78
     super.didChangeDependencies();
     _pushToHome();
   }
