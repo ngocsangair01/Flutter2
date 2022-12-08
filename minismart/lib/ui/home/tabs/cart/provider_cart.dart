@@ -56,8 +56,9 @@ class CartProvider extends ChangeNotifier{
     } else {
       listCart.removeAt(index);
       SecureStorage().updateCart(listCart);
+      notifyListeners();
     }
-    // notifyListeners();
+    notifyListeners();
   }
   int calculatorTotalMoney(){
     int total = 0;
