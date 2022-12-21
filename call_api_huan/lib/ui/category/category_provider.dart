@@ -37,7 +37,6 @@ class CategoryProvider extends ChangeNotifier {
             var data = response.results == null ?null
                 : List<Categoryy>.from((response.results as List).map((e) => Categoryy.fromJson(e))).toList();
             // products.addAll(data??<Product>[]);
-
           }
           notifyListeners();
         });

@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('build theme');
     return MaterialApp(
       title: 'Hello',
       theme: ThemeData(
@@ -42,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('Build context');
     return FutureBuilder<Init>(
       future: init.setInit(context),
       builder: (context,snapshot) => CategoryScreen(),
@@ -51,8 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class Init {
   Future<Init> setInit(BuildContext context) async {
-    ApiService().getApi();
+    print('Set Init');
+    await ApiService().getApi();
     SizeConfig().init(context);
+    print('done Set init');
     return Init();
   }
 }

@@ -161,6 +161,7 @@ class SizeConfig {
   static Orientation? orientation;
 
   void init(BuildContext context) {
+    print('day la size config init');
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;

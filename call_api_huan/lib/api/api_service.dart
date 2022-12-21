@@ -42,8 +42,10 @@ class ApiService{
     token = await SecureStorage().getValue(key: "token");
   }
 
-  Api getApi(){
-    _retrofit = Api(_dio);
+  Api getApi() {
+     print('get api dio');
+     _retrofit = Api(_dio);
+    print('done get api dio, tra ve retrofit');
     return _retrofit;
   }
 

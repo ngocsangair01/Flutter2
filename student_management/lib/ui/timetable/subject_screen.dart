@@ -1,5 +1,5 @@
-import '../../ui/subjects/subject_provider.dart';
-import '../../ui/subjects/subject_list.dart';
+import '../../ui/timetable/subject_provider.dart';
+import '../../ui/timetable/subject_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +33,18 @@ class _BodyWidgetState extends State<_BodyWidget> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Subjects'),
-        centerTitle: true,
+        centerTitle: false,
+        actions: [
+          Container(
+            margin: EdgeInsets.only(right: 20),
+            child: Image(
+              image: AssetImage("assets/images/img.png"),
+              height: 40,
+              width: 40,
+            ),
+          ),
+        ],
+        backgroundColor: Colors.redAccent,
       ),
       body: _provider.loading
           ? Center(
