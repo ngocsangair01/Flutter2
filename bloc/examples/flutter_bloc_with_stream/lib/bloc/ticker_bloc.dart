@@ -6,12 +6,7 @@ import 'package:flutter_bloc_with_stream/ticker/ticker.dart';
 part 'ticker_event.dart';
 part 'ticker_state.dart';
 
-/// {@template ticker_bloc}
-/// Bloc which manages the current [TickerState]
-/// and depends on a [Ticker] instance.
-/// {@endtemplate}
 class TickerBloc extends Bloc<TickerEvent, TickerState> {
-  /// {@macro ticker_bloc}
   TickerBloc(Ticker ticker) : super(TickerInitial()) {
     on<TickerStarted>(
       (event, emit) async {
@@ -23,7 +18,6 @@ class TickerBloc extends Bloc<TickerEvent, TickerState> {
       },
       transformer: restartable(),
     );
-
     on<_TickerTicked>((event, emit) => emit(TickerTickSuccess(event.tick)));
   }
 }
